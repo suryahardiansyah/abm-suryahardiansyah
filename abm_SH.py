@@ -93,9 +93,9 @@ class World:
         """Report the integration status of the world."""
         happy_agents = sum(agent.am_i_happy(self) for agent in self.agents)
         print(f'Iteration report: {happy_agents}/{len(self.agents)} agents are happy.')
-        self.plot_world(iteration)
+        self.report(iteration)
     
-    def plot_world(self, iteration):
+    def report(self, iteration):
         """Plot the current state of the world."""
         grid_size = self.size
         world_grid = np.zeros(grid_size)
