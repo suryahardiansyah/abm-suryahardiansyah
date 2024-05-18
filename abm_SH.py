@@ -107,12 +107,14 @@ class World:
                 elif agent.color == 'blue':
                     world_grid[x][y] = 2
 
-        plt.figure(figsize=(10, 10))
+        fig, ax = plt.subplots(figsize=self.size)
         sns.heatmap(world_grid, cbar=False, square=True, linewidths=.5, linecolor='black', annot=False,
-                    xticklabels=False, yticklabels=False, cmap=sns.color_palette(["white", "red", "blue"]))
-        plt.title(f'World State at Iteration {iteration}')
+                    xticklabels=False, yticklabels=False, cmap=sns.color_palette(["white", "red", "blue"]), ax=ax)
+        ax.set_title(f'World State at Iteration {iteration}')
         plt.show()
 
+# ensure that certain code runs only when the script is executed directly
+# https://realpython.com/if-name-main-python/
 if __name__ == "__main__":
     world_size = (20, 20)
     num_agents = 200
